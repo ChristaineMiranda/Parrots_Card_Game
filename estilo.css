@@ -1,0 +1,60 @@
+
+
+.container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #EEF9BF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.titulo{
+    position: fixed;
+    top: 40px;
+    font-size: 56px;
+    font-family: 'Roboto', sans-serif;
+    color:#75B79E;
+    font-weight: 700;
+}
+.frente{
+    width: 117x;
+    height: 146px;
+    background-color: #a7e9af;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #99CEA8;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+.campoCartas{
+    margin-top: 150px;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+img{
+    height: 100px;
+    width: 100px;
+}
+
+.verso{
+    width: 117x;
+    height: 146px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: blue;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+@media FAZER
