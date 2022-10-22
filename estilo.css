@@ -1,5 +1,3 @@
-
-
 .container{
     position: fixed;
     top: 0;
@@ -11,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    overflow-y: scroll;
 }
 .titulo{
     position: fixed;
@@ -19,22 +18,43 @@
     font-family: 'Roboto', sans-serif;
     color:#75B79E;
     font-weight: 700;
+    z-index: 2;
 }
-.frente{
-    width: 117x;
-    height: 146px;
+.carta{ /* caixa que abriga as faces da carta*/
+    width: 117px;
+    height: 146px; 
+    position: relative; 
+    margin-right: 50px;
+    margin-bottom: 50px;
+ }
+ .face{ /*cada face - frente e verso*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background-color: #a7e9af;
     border-radius: 5px;
     border-width: 1px;
     border-color: #99CEA8;
     display: flex;
     align-items: center;
-    margin-right: 50px;
-    margin-bottom: 50px;
+    justify-content: center;
+    transition: all 0.5s linear;
+    backface-visibility: hidden;/*esconde a face traseira do elemento quando girado*/
+    transform-style: preserve-3d;/*não mostrar conteúdo espelhado quando girado*/ 
+ }
+ .verso{
+    transform: rotateY(180deg);
 }
-.campoCartas{
+ .virada .verso{
+    transform: rotateY(0deg);
+ }
+ .virada .frente{
+    transform: rotateY(-180deg);
+ }
+    
+.campoCartas{ /*área destinada às cartas*/
     margin-top: 150px;
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -44,17 +64,20 @@ img{
     height: 100px;
     width: 100px;
 }
-
-.verso{
-    width: 117x;
-    height: 146px;
-    border-radius: 5px;
-    border-width: 1px;
-    border-color: blue;
-    background-color: blue;
-    display: flex;
-    align-items: center;
-    margin-right: 50px;
-    margin-bottom: 50px;
-}
-@media FAZER
+@media(max-width: 600px){
+    .campoCartas{ /*área destinada às cartas*/
+        margin-top: 170px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .titulo{
+        position: fixed;
+        padding-top: 40px;
+        top: 0px;
+        font-size: 36px;
+        z-index: 2;
+        background-color: #EEF9BF;
+        text-align: center;
+    }
