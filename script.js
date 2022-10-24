@@ -2,9 +2,17 @@ let quantidadeCartas = 0;
 let contador = 0;
 let parescertos = 0;
 let jogadas = 0;
+let segundos = 0;
+let pararRelogio;
+const mostradorTempo = document.querySelector('.relogio');
 const vetorTodasAsImagens = ["bobrossparrot.gif", "bobrossparrot.gif", "explodyparrot.gif","explodyparrot.gif","fiestaparrot.gif", "fiestaparrot.gif", "metalparrot.gif", "metalparrot.gif", "revertitparrot.gif", "revertitparrot.gif", "tripletsparrot.gif", "tripletsparrot.gif", "unicornparrot.gif", "unicornparrot.gif"];   // todas as imagens duplicadas dois a dois
 const vetorImagensAUsar = [];
 
+function incrementa(){
+    segundos++;
+    mostradorTempo.innerHTML = `Tempo</br>${segundos}seg`;
+
+}
 //quando usuario escolhe quantas cartas, cria outro vetor com as n primeiras cartas do vetor de imagens
 //depois embaralha
 //encher a area das cartas com esse vetor embaralhado
@@ -29,6 +37,7 @@ for(let i=0; i<quantidadeCartas; i++){
     <div class="face frente"><img src="back.png"/></div>
 </div>`
 }//CAMPO CARTAS PREENCHIDO
+pararRelogio = setInterval(incrementa, 1000);
 
 //VIRA CARTA SELECIONADA E QUANDO A SEGUNDA CARTA É CLICADA, CHAMA COMPARAÇÃO
 function virarCarta(cartaClicada){
@@ -55,7 +64,9 @@ function compara(){
         }
         parescertos = parescertos +2;
         if(parescertos === quantidadeCartas){
-            alert(`Você ganhou em ${jogadas} jogadas!`);
+            clearInterval(pararRelogio);
+            alert(`PARABÉNS! 
+            Você ganhou em ${jogadas} jogadas e ${segundos} segundos!`);
         }
     }
     else{
